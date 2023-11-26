@@ -1,14 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather App</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/style.css" />
+
+    <script
+      src="https://kit.fontawesome.com/7064d017a6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
-    <h1>Hello Git</h1>
+    <div class="container border border-info p-3 rounded" style="width: 600px">
+      <header>
+        <form id="city-form">
+          <input
+            type="search"
+            placeholder="Enter a city.. "
+            required
+            class="search-input"
+            id="city-input"
+          />
+          <input
+            type="submit"
+            value="Search"
+            class="search-button"
+            id="search-button"
+          />
+        </form>
+      </header>
 
-    <script src="app.js"></script>
+      <div class="row">
+        <h1 class="current-city" id="current-city">Placeholder city</h1>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h2 class="temperature">
+            <span id="current-temperature">23</span
+            ><span class="tempUnit">°C</span>
+          </h2>
+        </div>
+
+        <div class="col-1 weatherIcon">
+          <i class="fa-solid fa-cloud-rain"></i>
+        </div>
+        <div class="col-3">
+          <h3 class="current-weather" id="current-weather">Rainy</h3>
+        </div>
+
+        <div class="col-4">
+          <div class="row">
+            <div class="col-1">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <div class="col-5"><h5>Humidity:</h5></div>
+            <div class="col-5">
+              <p class="precipitation-percentage" id="humidity">100%</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-1"><i class="fa-solid fa-wind"></i></div>
+            <div class="col-5"><h5>Wind:</h5></div>
+            <div class="col-5">
+              <p class="wind-speed" id="wind-speed">21 km/h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4 class="current-day" id="current-day"></h4>
+      </div>
+
+      <hr />
+
+      <div class="row following-days">
+        <div class="col-2">Sunday</div>
+        <div class="col-2">Monday</div>
+        <div class="col-2">Tuesday</div>
+        <div class="col-2">Wednesday</div>
+        <div class="col-2">Thursday</div>
+        <div class="col-2">Friday</div>
+      </div>
+
+      <div class="row following-icons">
+        <div class="col-2"><i class="fa-solid fa-cloud-sun"></i></div>
+        <div class="col-2"><i class="fa-solid fa-cloud-rain"></i></div>
+        <div class="col-2"><i class="fa-solid fa-cloud-rain"></i></div>
+        <div class="col-2"><i class="fa-solid fa-cloud"></i></div>
+        <div class="col-2"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+        <div class="col-2"><i class="fa-solid fa-sun"></i></div>
+      </div>
+
+      <div class="row following-temperatures">
+        <div class="col-2">23°C-19°C</div>
+        <div class="col-2">23°C-17°C</div>
+        <div class="col-2">26°C-18°C</div>
+        <div class="col-2">27°C-21°C</div>
+        <div class="col-2">23°C-18°C</div>
+        <div class="col-2">23°C-19°C</div>
+      </div>
+      <br />
+      <p>Coded by TammySteph</p>
+    </div>
+
+    <script src="src/app.js"></script>
   </body>
 </html>
